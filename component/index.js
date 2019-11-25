@@ -2364,27 +2364,29 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         var _this3 = this;
 
         var slots = this.shadowRoot.querySelectorAll('slot');
-
+        console.log('run', slots);
         slots[1].addEventListener('slotchange', function (event) {
           event.stopImmediatePropagation();
+
           if (slots[1].name === 'right') {
             var button = _this3.querySelector('button'),
-                clone = button.cloneNode(true),
                 target = _this3.shadowRoot.querySelector('.mdc-top-app-bar__section--align-end');
-            clone.classList.add('material-icons');
-            clone.classList.add('mdc-icon-button');
-            clone.classList.add('mdc-top-app-bar__action-item');
-            // button.classList.add('mdc-icon-button material-icons mdc-top-app-bar__action-item mdc-ripple-upgraded--unbounded mdc-ripple-upgraded');
-            console.log(clone);
-            console.log(button);
-            if (target !== null && button !== null) {
-              target.appendChild(clone);
+            var buttons = _this3.querySelectorAll('button');
+            console.log('SLOT BUTTONS', buttons);
+            if (buttons !== null) {
+              buttons.forEach(function (item) {
+                if (target !== null && item !== null) {
+                  target.appendChild(item.cloneNode(true));
+                }
+              });
             }
           }
         });
         slots[1].style.display = "none";
+        this.mdcInit();
         if (this.type === null) {
           this.type = 'standard';
+          this.mdcInit();
         }
 
         if (this.type === 'standard') {
@@ -2431,6 +2433,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         if (name === 'menuicon' && oldValue !== newValue) {
           this.menuIconNode.innerHTML = this.menuIcon;
         }
+      }
+    }, {
+      key: 'disconnectedCallback',
+      value: function disconnectedCallback() {
+        var button = this.querySelector('button'),
+            target = this.shadowRoot.querySelector('.mdc-top-app-bar__section--align-end');
+        console.log('UNMOUNTED', button, target);
       }
     }]);
 
