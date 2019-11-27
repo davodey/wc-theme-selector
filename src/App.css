@@ -1,22 +1,243 @@
-.App {
-  text-align: center;
+flayvor-top-app-bar {
+  position:static;
+  width:100%;
+  background-color: #c6e873;
+  color:#252525;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
+.theme-builder {
+  display:grid;
+  position:relative;
+  grid-gap:32px;
+  grid-template-rows: 200px 1fr;
+
+}
+.component-container {
+  background:#f7f7f7;
+  position:relative;
+  padding:64px;
+  border-bottom:1px solid #ccc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.selection-and-output {
+  display:grid;
+  grid-row-gap: 32px;
+}
+
+.selection {
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-row-gap:16px;
+}
+.output {
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap:16px;
+}
+.output span {
+  grid-column: 2;
+  font-weight: bold;
+}
+
+.output .content {
+  grid-row:2;
+  grid-column:2 / span 3;
+}
+
+.selection > span {
+  grid-row:1;
+  font-weight:bold;
+  grid-column:2;
+}
+
+.selection > nav {
+  grid-row:2;
+  grid-column:2 / span 5;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #09d3ac;
+.selection ul {
+  padding:0;
+  margin:0;
+  list-style-type: none;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+
+}
+
+.selection ul li {
+  justify-content: center;
+}
+.selection button {
+  border:0;
+  font-size:14px;
+  cursor:pointer;
+  border:1px solid #ccc;
+  border-radius: 5px;
+  padding:8px;
+  width:100%;
+
+}
+.selection button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1977d4;
+}
+.selection > button {
+  grid-row:2;
+  grid-column: 7;
+  border:0;
+}
+
+p {
+  line-height: 1.5;
+  margin-top:0;
+  font-size:14px;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom:16px;
+  padding-bottom:16px;
+}
+fieldset {
+  border:0;
+}
+.output label {
+  margin:0;
+  font-size:14px;
+  cursor:pointer
+}
+.output input {
+  cursor:pointer;
+}
+
+.selection button.active {
+  outline: 0;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8c19d4;
+}
+
+
+.control {
+  font-family: arial;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control_indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+  border: 0px solid #000000;
+  border-radius: undefinedpx;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+  background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+  background: #8c19d4;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+  background: #0e6647d;
+}
+.control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control_indicator:after {
+  box-sizing: unset;
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control_indicator:after {
+  display: block;
+}
+.control-radio .control_indicator {
+  border-radius: 50%;
+}
+
+.control-radio .control_indicator:after {
+  left: 7px;
+  top: 7px;
+  height: 0px;
+  width: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: background 250ms;
+}
+.control-radio input:disabled ~ .control_indicator:after {
+  background: #7b7b7b;
+}.control-radio .control_indicator::before {
+   content: '';
+   display: block;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 4.5rem;
+   height: 4.5rem;
+   margin-left: -1.3rem;
+   margin-top: -1.3rem;
+   background: #8c19d4;
+   border-radius: 3rem;
+   opacity: 0.6;
+   z-index: 99999;
+   transform: scale(0);
+ }
+@keyframes s-ripple {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.01;
+    transform: scale(1);
+  }
+}
+@keyframes s-ripple-dup {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+.control-radio input + .control_indicator::before {
+  animation: s-ripple 250ms ease-out;
+}
+.control-radio input:checked + .control_indicator::before {
+  animation-name: s-ripple-dup;
+}
+
+.control-group {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-row-gap: 32px;
 }
