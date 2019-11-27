@@ -17,11 +17,20 @@ class App extends Component {
       buttonsBuilt: [],
       font: "Open Sans",
       layout: 'standard',
-      bgColor: ''
+      color: {
+        hex: "#f44336",
+        hue: "red",
+        "shade": "500"
+      },
+      fontColor: {
+        hex: "#000000",
+        hue: "black",
+        "shade": "500"
+      }
     };
     this.config = {
       options: [
-        'Layout', 'Typography', 'Color', 'Menu icon', 'Title', 'Add items', 'Generate code'
+        'Layout', 'Typography', 'Bg Color', 'Font Color', 'Menu icon', 'Title', 'Add items', 'Generate code'
       ],
       layout: [
         'Standard', 'Dense', 'Prominent', 'Collapsed', 'Short', 'Fixed'
@@ -30,6 +39,7 @@ class App extends Component {
     this.setLayout = this.setLayout.bind(this);
     this.setFont = this.setFont.bind(this);
     this.setBgColor = this.setBgColor.bind(this);
+    this.setFontColor = this.setFontColor.bind(this);
   }
 
   // COMPONENT INIT
@@ -74,31 +84,40 @@ class App extends Component {
   componentWillReceiveProps () {
 
   }
+
+  setFontColor (event) {
+    console.log('Click')
+    this.setState({fontColor:{hex: event.target.getAttribute('data-id'), shade: event.target.getAttribute('data-shade'), hue: event.target.getAttribute('data-hue')}})
+  }
+
   setBgColor (event) {
-    this.setState({bgColor: event.target.getAttribute('data-id')})
+    console.log('Click')
+    this.setState({color:{hex: event.target.getAttribute('data-id'), shade: event.target.getAttribute('data-shade'), hue: event.target.getAttribute('data-hue')}})
   }
 
   setLayout (event) {
     this.setState({layout: event.target.id.toLocaleLowerCase()})
   }
+
   setFont (event) {
     this.setState({font: event.family})
   }
+
   render () {
+    console.log(this.state.fontColor)
     return (
       <div className="theme-builder">
         <div className={"component-container"}>
           <YourComponent
-            font={this.state.activeFontFamily}
             buttonsBuilt={this.state.buttonsBuilt}
             title={"App Bar"}
             showMenuIcon={this.state.showMenuIcon}
             bgColor={this.state.primaryColorData.selectedHex}
-            fontColor={this.state.secondaryColorData.selectedHex}
             menuIcon={this.state.menuIcon}
             layout={this.state.layout}
             font={this.state.font}
-            bgColor={this.state.bgColor}
+            color={this.state.color}
+            fontColor={this.state.fontColor}
           >
           </YourComponent>
         </div>
@@ -110,6 +129,9 @@ class App extends Component {
           setFont={this.setFont}
           font={this.state.font}
           setBgColor={this.setBgColor}
+          color={this.state.color}
+          setFontColor={this.setFontColor}
+          fontColor={this.state.fontColor}
         />
       </div>
     )

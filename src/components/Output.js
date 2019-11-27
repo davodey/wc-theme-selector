@@ -10,7 +10,7 @@ const Output = (props) => {
       {
         props.optionSelected === "Layout" ? "Select a layout" :
         props.optionSelected === "Typography" ? "Select a font family" :
-        props.optionSelected === "Color" ? "Select your color scheme" :
+        props.optionSelected === "Bg Color" ? "Select your background color" :
         props.optionSelected === "Menu icon" ? "Change your menu icon" :
         props.optionSelected === "Title" ? "Change your title" :
         props.optionSelected === "Add items" ? "Add menu buttons" :
@@ -26,8 +26,10 @@ const Output = (props) => {
             <OptionRadio layout={props.layout} onChange={props.setLayout} options={props.layoutOptions}/> :
           props.optionSelected === 'Typography' ?
             <FontPicker activeFontFamily={props.font} onChange={props.setFont} apiKey="AIzaSyAMJM5phI4GbCGR8Dcu8rIlxFxOermsVDM"/> :
-          props.optionSelected === 'Color' ?
-            <ColorPalette setBgColor={props.setBgColor}/> :
+          props.optionSelected === 'Bg Color' ?
+            <ColorPalette color={props.color} bgColor={props.bgColor} onClick={props.setBgColor}/> :
+          props.optionSelected === 'Font Color' ?
+            <ColorPalette color={props.fontColor} bgColor={props.fontColor.hex} onClick={props.setFontColor}/> :
             <Fragment></Fragment>
         }
       </div>

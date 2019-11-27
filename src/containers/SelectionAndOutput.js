@@ -7,7 +7,7 @@ class SelectionAndOutput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      optionSelected: 'Color'
+      optionSelected: 'Bg Color'
     };
     this.selectOption = this.selectOption.bind(this);
   }
@@ -75,6 +75,10 @@ class SelectionAndOutput extends Component {
           setFont={this.props.setFont}
           font={this.props.font}
           setBgColor={this.props.setBgColor}
+          bgColor={this.props.color.hex}
+          color={this.props.color}
+          setFontColor={this.props.setFontColor}
+          fontColor={this.props.fontColor}
         />
       </div>
     )

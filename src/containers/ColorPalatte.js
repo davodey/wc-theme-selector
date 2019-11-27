@@ -22,24 +22,33 @@ class ColorPalette extends Component {
     });
   }
 
-
   render () {
     return (
-      <div className={"color-palatte"}>
-        {
-          this.colorArr.map(color => {
-            if (color.shade === '500') {
-              return (
-                <button key={uuid()} className="color" style={{'backgroundColor': color.hex}} onClick={this.props.setBgColor} data-id={color.hex}></button>
-              )
-            } else {
-              return (
-                <Fragment></Fragment>
-              )
-            }
-          })
-        }
-      </div>
+      <Fragment>
+        <div className={"color-palatte"}>
+          {
+            this.colorArr.map((color,index) => {
+              if (color.shade === '500') {
+                return (
+                  <button key={index} className={this.props.color.hue === color.hue? 'color active': 'color'} style={{'backgroundColor': color.hex}} onClick={this.props.onClick} data-id={color.hex} data-hue={color.hue} data-shade={color.shade}><span>{color.hue}</span></button>
+                )
+              }
+            })
+          }
+        </div>
+        <div className={"color-palatte sub"}>
+          {
+            this.colorArr.map((color,index) => {
+              if (color.hue === this.props.color.hue) {
+                return (
+                  <button key={index} className={this.props.bgColor === color.hex && color.hue !== 'black' && color.hue !== 'white'  ? 'color active': 'color'} style={{'backgroundColor': color.hex}} onClick={this.props.onClick} data-id={color.hex} data-hue={color.hue} data-shade={color.shade}>{color.shade}</button>
+                )
+              }
+            })
+          }
+        </div>
+      </Fragment>
+
     )
   }
 }
