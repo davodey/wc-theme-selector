@@ -16,7 +16,8 @@ class App extends Component {
       input: '',
       buttonsBuilt: [],
       font: "Open Sans",
-      layout: 'standard'
+      layout: 'standard',
+      bgColor: ''
     };
     this.config = {
       options: [
@@ -28,6 +29,7 @@ class App extends Component {
     }
     this.setLayout = this.setLayout.bind(this);
     this.setFont = this.setFont.bind(this);
+    this.setBgColor = this.setBgColor.bind(this);
   }
 
   // COMPONENT INIT
@@ -72,6 +74,9 @@ class App extends Component {
   componentWillReceiveProps () {
 
   }
+  setBgColor (event) {
+    this.setState({bgColor: event.target.getAttribute('data-id')})
+  }
 
   setLayout (event) {
     this.setState({layout: event.target.id.toLocaleLowerCase()})
@@ -93,6 +98,7 @@ class App extends Component {
             menuIcon={this.state.menuIcon}
             layout={this.state.layout}
             font={this.state.font}
+            bgColor={this.state.bgColor}
           >
           </YourComponent>
         </div>
@@ -103,6 +109,7 @@ class App extends Component {
           layout={this.state.layout}
           setFont={this.setFont}
           font={this.state.font}
+          setBgColor={this.setBgColor}
         />
       </div>
     )

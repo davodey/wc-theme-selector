@@ -103,6 +103,7 @@ p {
 }
 fieldset {
   border:0;
+  grid-column: span 6;
 }
 .output label {
   margin:0;
@@ -245,6 +246,7 @@ fieldset {
 #font-picker {
   width:100%;
   padding:16px;
+  grid-column: span 6;
 }
 #font-picker button {
   background:white;
@@ -261,4 +263,26 @@ fieldset {
 }
 #font-picker .dropdown-font-family {
   font-size:32px;
+}
+.output .content {
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.output .content .description {
+  grid-row: 1;
+  grid-column: 1 / span 6
+}
+.output .content .color-palatte {
+  grid-row:2;
+  grid-column: span 6;
+}
+/*.color-palatte {*/
+  /*display:grid;*/
+  /*grid-template-columns: repeat(14, 1fr);*/
+/*}*/
+.color {
+  width:40px;
+  height:80px;
+  border:0;
+  cursor:pointer
 }

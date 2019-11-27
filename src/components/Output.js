@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
 import OptionRadio from "./OptionRadio";
 import FontPicker from "font-picker-react";
+import ColorPalette from "../containers/ColorPalatte";
 
 const Output = (props) => {
   return (
@@ -25,6 +26,8 @@ const Output = (props) => {
             <OptionRadio layout={props.layout} onChange={props.setLayout} options={props.layoutOptions}/> :
           props.optionSelected === 'Typography' ?
             <FontPicker activeFontFamily={props.font} onChange={props.setFont} apiKey="AIzaSyAMJM5phI4GbCGR8Dcu8rIlxFxOermsVDM"/> :
+          props.optionSelected === 'Color' ?
+            <ColorPalette setBgColor={props.setBgColor}/> :
             <Fragment></Fragment>
         }
       </div>
