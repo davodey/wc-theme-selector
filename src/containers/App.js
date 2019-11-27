@@ -15,7 +15,7 @@ class App extends Component {
       showMenuIcon: true,
       input: '',
       buttonsBuilt: [],
-      activeFontFamily: "Open Sans",
+      font: "Open Sans",
       layout: 'standard'
     };
     this.config = {
@@ -27,6 +27,7 @@ class App extends Component {
       ]
     }
     this.setLayout = this.setLayout.bind(this);
+    this.setFont = this.setFont.bind(this);
   }
 
   // COMPONENT INIT
@@ -75,7 +76,9 @@ class App extends Component {
   setLayout (event) {
     this.setState({layout: event.target.id.toLocaleLowerCase()})
   }
-
+  setFont (event) {
+    this.setState({font: event.family})
+  }
   render () {
     return (
       <div className="theme-builder">
@@ -89,6 +92,7 @@ class App extends Component {
             fontColor={this.state.secondaryColorData.selectedHex}
             menuIcon={this.state.menuIcon}
             layout={this.state.layout}
+            font={this.state.font}
           >
           </YourComponent>
         </div>
@@ -97,6 +101,8 @@ class App extends Component {
           layoutOptions={this.config.layout}
           setLayout={this.setLayout}
           layout={this.state.layout}
+          setFont={this.setFont}
+          font={this.state.font}
         />
       </div>
     )

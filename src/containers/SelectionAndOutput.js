@@ -7,7 +7,7 @@ class SelectionAndOutput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      optionSelected: 'Layout'
+      optionSelected: 'Typography'
     };
     this.selectOption = this.selectOption.bind(this);
   }
@@ -72,6 +72,8 @@ class SelectionAndOutput extends Component {
           layoutOptions={this.props.layoutOptions}
           setLayout={this.props.setLayout}
           layout={this.props.layout}
+          setFont={this.props.setFont}
+          font={this.props.font}
         />
       </div>
     )

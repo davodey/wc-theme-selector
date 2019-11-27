@@ -3,7 +3,7 @@ flayvor-top-app-bar {
   width:100%;
   background-color: #c6e873;
   color:#252525;
-  font-family: 'Roboto', sans-serif;
+  font-family: inherit;
 }
 
 .theme-builder {
@@ -240,4 +240,25 @@ fieldset {
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-row-gap: 32px;
+}
+
+#font-picker {
+  width:100%;
+  padding:16px;
+}
+#font-picker button {
+  background:white;
+  font-size:32px;
+  height:auto;
+}
+#font-picker p {
+  border-bottom: none;
+}
+#font-picker .font-list-item {
+  padding: 16px;
+  height: auto;
+  background:white;
+}
+#font-picker .dropdown-font-family {
+  font-size:32px;
 }

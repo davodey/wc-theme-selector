@@ -1,5 +1,6 @@
 import React, {Fragment} from "react";
 import OptionRadio from "./OptionRadio";
+import FontPicker from "font-picker-react";
 
 const Output = (props) => {
   return (
@@ -21,7 +22,10 @@ const Output = (props) => {
         </div>
         {
           props.optionSelected === 'Layout' ?
-            <OptionRadio layout={props.layout} onChange={props.setLayout} options={props.layoutOptions}/> : <Fragment></Fragment>
+            <OptionRadio layout={props.layout} onChange={props.setLayout} options={props.layoutOptions}/> :
+          props.optionSelected === 'Typography' ?
+            <FontPicker activeFontFamily={props.font} onChange={props.setFont} apiKey="AIzaSyAMJM5phI4GbCGR8Dcu8rIlxFxOermsVDM"/> :
+            <Fragment></Fragment>
         }
       </div>
     </div>

@@ -7,7 +7,7 @@ const YourComponent = (props) => {
         <style dangerouslySetInnerHTML={{__html: `flayvor-top-app-bar {
             background: ${props.bgColor};
             color: ${props.fontColor};
-            font-family:${props.font};
+            font-family:"${props.font}";
         }`}} />
       </div>
       <div id={"markup"} className={"apply-font"}>
