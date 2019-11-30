@@ -6,8 +6,8 @@ const YourComponent = (props) => {
       <div id={"css"}>
         <style dangerouslySetInnerHTML={{__html: `flayvor-top-app-bar {
             background: ${props.color.hex};
-            color: ${props.fontColor.hex};
             font-family:"${props.font}";
+            color:${props.color.fontColor};
         }`}} />
       </div>
       <div id={"markup"} className={"apply-font"}>

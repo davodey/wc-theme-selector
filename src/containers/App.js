@@ -20,17 +20,13 @@ class App extends Component {
       color: {
         hex: "#f44336",
         hue: "red",
-        "shade": "500"
+        shade: "500",
+        fontColor: "white"
       },
-      fontColor: {
-        hex: "#000000",
-        hue: "black",
-        "shade": "500"
-      }
     };
     this.config = {
       options: [
-        'Layout', 'Typography', 'Bg Color', 'Font Color', 'Menu icon', 'Title', 'Add items', 'Generate code'
+        'Layout', 'Typography', 'Color', 'Menu icon', 'Title', 'Add items', 'Generate code'
       ],
       layout: [
         'Standard', 'Dense', 'Prominent', 'Collapsed', 'Short', 'Fixed'
@@ -39,7 +35,6 @@ class App extends Component {
     this.setLayout = this.setLayout.bind(this);
     this.setFont = this.setFont.bind(this);
     this.setBgColor = this.setBgColor.bind(this);
-    this.setFontColor = this.setFontColor.bind(this);
   }
 
   // COMPONENT INIT
@@ -85,14 +80,9 @@ class App extends Component {
 
   }
 
-  setFontColor (event) {
-    console.log('Click')
-    this.setState({fontColor:{hex: event.target.getAttribute('data-id'), shade: event.target.getAttribute('data-shade'), hue: event.target.getAttribute('data-hue')}})
-  }
-
   setBgColor (event) {
-    console.log('Click')
-    this.setState({color:{hex: event.target.getAttribute('data-id'), shade: event.target.getAttribute('data-shade'), hue: event.target.getAttribute('data-hue')}})
+    console.log(event.target.getAttribute('data-fontcolor'))
+    this.setState({color:{hex: event.target.getAttribute('data-id'), shade: event.target.getAttribute('data-shade'), hue: event.target.getAttribute('data-hue'), fontColor: event.target.getAttribute('data-fontcolor')}})
   }
 
   setLayout (event) {
@@ -117,7 +107,6 @@ class App extends Component {
             layout={this.state.layout}
             font={this.state.font}
             color={this.state.color}
-            fontColor={this.state.fontColor}
           >
           </YourComponent>
         </div>
@@ -130,8 +119,6 @@ class App extends Component {
           font={this.state.font}
           setBgColor={this.setBgColor}
           color={this.state.color}
-          setFontColor={this.setFontColor}
-          fontColor={this.state.fontColor}
         />
       </div>
     )

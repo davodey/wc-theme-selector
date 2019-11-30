@@ -274,7 +274,7 @@ fieldset {
   grid-column: 1 / span 6
 }
 .output .content .color-palatte {
-  grid-row:2;
+  grid-row:3;
   grid-column: span 6;
   transition: all 2s ease-in;
 }
@@ -307,13 +307,13 @@ fieldset {
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8c19d4;
 }
 .output .color-palatte.sub {
-  grid-row:3;
+  grid-row:2;
 }
 .output .color-palatte.sub .color {
   height:30px;
 }
 .sub-color-palatte {
-  grid-row:3;
+  grid-row:2;
   grid-column: span 6;
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(40px, 70px));
@@ -334,4 +334,11 @@ fieldset {
   display:block;
   pointer-events: none;
   font-weight: normal;
+}
+
+.black {
+  color: black;
+}
+.white {
+  color:white;
 }
