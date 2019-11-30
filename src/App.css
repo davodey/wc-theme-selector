@@ -293,13 +293,21 @@ fieldset {
   display: flex;
 
 }
-.color.active {
+.color-palatte .color.active {
   transform: scale(1.2);
+}
+.color-palatte.sub .color.active {
+ transform: none;
+  z-index: initial;
+}
+.color.active {
+
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 1px 1px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius:5px;
   outline: 0;
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8c19d4;
+  z-index: 2;
 }
 
 .color:focus {
@@ -341,4 +349,22 @@ fieldset {
 }
 .white {
   color:white;
+}
+[data-alpha="true"] {
+  position:relative;
+}
+[data-alpha="true"]:before {
+  content: '';
+  position: absolute;
+  width:100%;
+  top:0;
+  left:0;
+background-image: url('./assets/transparent.png');
+
+  height:30px;
+  z-index: -1;
+}
+.active[data-alpha="true"]:before {
+  background-image: url('./assets/transparent.png');
+
 }

@@ -52,6 +52,11 @@ class ColorPalette extends Component {
           color.fontColor = 'white'
         }
       }
+      if (color.shade === 'a100' || color.shade === 'a200' || color.shade ==='a400' || color.shade === 'a700') {
+        color.alpha = true
+      } else {
+        color.alpha = false
+      }
       if (parseInt(color.shade) >= 700 && parseInt(color.shade) <= 900) {
         if (color.hue === 'lightblue' || color.hue === 'cyan') {
           color.fontColor = 'white';
@@ -86,7 +91,7 @@ class ColorPalette extends Component {
             this.colorArr.map((color,index) => {
               if (color.shade === '500') {
                 return (
-                  <button key={index} className={this.props.color.hue === color.hue? 'color active ' + color.fontColor : 'color ' + color.fontColor} style={{'backgroundColor': color.hex}} onClick={this.props.onClick} data-id={color.hex} data-hue={color.hue} data-shade={color.shade} data-fontcolor={color.fontColor}><span>{color.hue}</span></button>
+                  <button key={index} className={this.props.color.hue === color.hue? 'color active ' + color.fontColor : 'color ' + color.fontColor} style={{'backgroundColor': color.hex}} onClick={this.props.onClick} data-id={color.hex} data-hue={color.hue} data-shade={color.shade} data-fontcolor={color.fontColor} data-alpha={color.alpha}><span>{color.hue}</span></button>
                 )
               }
             })
@@ -97,7 +102,7 @@ class ColorPalette extends Component {
             this.colorArr.map((color,index) => {
               if (color.hue === this.props.color.hue) {
                 return (
-                  <button key={index} className={this.props.bgColor === color.hex && color.hue !== 'black' && color.hue !== 'white'  ? 'color active ' + color.fontColor: 'color ' + color.fontColor} style={{'backgroundColor': color.hex}} onClick={this.props.onClick} data-id={color.hex} data-hue={color.hue} data-shade={color.shade}  data-fontcolor={color.fontColor}>{color.shade}</button>
+                  <button key={index} className={this.props.bgColor === color.hex && color.hue !== 'black' && color.hue !== 'white'  ? 'color active ' + color.fontColor: 'color ' + color.fontColor} style={{'backgroundColor': color.hex}} onClick={this.props.onClick} data-id={color.hex} data-hue={color.hue} data-shade={color.shade}  data-fontcolor={color.fontColor}  data-alpha={color.alpha}>{color.shade}</button>
                 )
               }
             })
