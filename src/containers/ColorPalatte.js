@@ -100,7 +100,7 @@ class ColorPalette extends Component {
         <div className={"color-palatte sub"}>
           {
             this.colorArr.map((color,index) => {
-              if (color.hue === this.props.color.hue) {
+              if (color.hue === this.props.color.hue && color.hue !== 'black' && color.hue !== 'white') {
                 return (
                   <button key={index} className={this.props.bgColor === color.hex && color.hue !== 'black' && color.hue !== 'white'  ? 'color active ' + color.fontColor: 'color ' + color.fontColor} style={{'backgroundColor': color.hex}} onClick={this.props.onClick} data-id={color.hex} data-hue={color.hue} data-shade={color.shade}  data-fontcolor={color.fontColor}  data-alpha={color.alpha}>{color.shade}</button>
                 )
