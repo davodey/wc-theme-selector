@@ -20,9 +20,7 @@ class ColorPalette extends Component {
         this.colorArr.push(obj);
       })
     });
-  }
 
-  componentDidMount() {
     this.colorArr.map(color => {
       if (color.hue === 'black') {
         color.fontColor = 'white'
@@ -81,6 +79,10 @@ class ColorPalette extends Component {
         }
       }
     })
+  }
+
+  componentDidMount() {
+
   }
 
   render () {

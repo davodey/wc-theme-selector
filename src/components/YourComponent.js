@@ -13,7 +13,7 @@ const YourComponent = (props) => {
       <div id={"markup"} className={"apply-font"}>
         {props.showMenuIcon === true ?
           <flayvor-top-app-bar
-            title={props.title}
+            title={props.titleText}
             position="static"
             menuicon={props.menuIcon}
             type={props.layout}

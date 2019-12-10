@@ -2,6 +2,9 @@ import React, {Fragment} from "react";
 import OptionRadio from "./OptionRadio";
 import FontPicker from "font-picker-react";
 import ColorPalette from "../containers/ColorPalatte";
+import IconSelect from "../containers/IconSelect";
+import uuid from "uuid";
+import AddButtons from "../containers/AddButtons";
 
 const Output = (props) => {
   return (
@@ -17,7 +20,7 @@ const Output = (props) => {
           "Generate your HTML & CSS Code"
       }
       </span>
-      <div className={"content"}>
+      <div className={props.optionSelected === "Menu icon" || props.optionSelected === "Add items" ? "content icon" : "content" }>
         <div className={"description"}>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan, neque id congue fermentum, sapien nisi vehicula neque, id pharetra orci erat quis velit.</p>
         </div>
@@ -28,6 +31,19 @@ const Output = (props) => {
             <FontPicker activeFontFamily={props.font} onChange={props.setFont} apiKey="AIzaSyAMJM5phI4GbCGR8Dcu8rIlxFxOermsVDM"/> :
           props.optionSelected === 'Color' ?
             <ColorPalette color={props.color} bgColor={props.bgColor} onClick={props.setBgColor}/> :
+          props.optionSelected === 'Menu icon' ?
+            <div className={"scroll-container"}>
+            <div className={"icon-grid"}>
+              <IconSelect onClick={props.setMenuIcon} draggable={false}/>
+            </div> </div>:
+            props.optionSelected === 'Title' ?
+              <div className={"basic-input"}>
+                <label>Label</label>
+                <input onInput={props.setTitleText} type={"text"}/>
+              </div> :
+              props.optionSelected === 'Add items' ?
+              <AddButtons onClick={props.addItems} itemsAdded={props.itemsAdded}/>
+                :
             <Fragment></Fragment>
         }
       </div>

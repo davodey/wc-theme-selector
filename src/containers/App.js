@@ -23,6 +23,9 @@ class App extends Component {
         shade: "500",
         fontColor: "white"
       },
+      menuIcon: "access_time",
+      titleText: "This is your title",
+      itemsAdded: []
     };
     this.config = {
       options: [
@@ -35,6 +38,9 @@ class App extends Component {
     this.setLayout = this.setLayout.bind(this);
     this.setFont = this.setFont.bind(this);
     this.setBgColor = this.setBgColor.bind(this);
+    this.setMenuIcon = this.setMenuIcon.bind(this);
+    this.setTitleText = this.setTitleText.bind(this);
+    this.addItems = this.addItems.bind(this);
   }
 
   // COMPONENT INIT
@@ -53,13 +59,13 @@ class App extends Component {
   // COMPONENT STATE UPDATES
   // shouldComponentUpdate is always called before the render method and enables to define if a re-rendering is needed or can be skipped.
   // Obviously this method is never called on initial rendering. A boolean value must be returned.
-  shouldComponentUpdate (nextProps, nextState) {
-    if (this.props !== nextProps || this.state !== nextState) {
-      return true
-    } else {
-      return false
-    }
-  }
+  // shouldComponentUpdate (nextProps, nextState) {
+  //   if (this.props !== nextProps || this.state !== nextState) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
 
   // componentWillUpdate gets called as soon as the the shouldComponentUpdate returned true.
   // Any state changes via this.setState are not allowed as this method should be strictly used
@@ -69,7 +75,8 @@ class App extends Component {
   // componentDidUpdate is called after the render method. Similar to the componentDidMount,
   // this method can be used to perform DOM operations after the data has been updated.
   componentDidUpdate (prevProps, prevState) {
-
+    const addItemsSelected = document.querySelector('.drag-target-container');
+    console.log(addItemsSelected)
   }
 
   // UPDATE PROPS
@@ -79,7 +86,9 @@ class App extends Component {
   componentWillReceiveProps () {
 
   }
-
+  setMenuIcon (event) {
+    this.setState({menuIcon: event.nativeEvent.target.innerHTML})
+  }
   setBgColor (event) {
     console.log(event.target.getAttribute('data-fontcolor'))
     this.setState({color:{hex: event.target.getAttribute('data-id'), shade: event.target.getAttribute('data-shade'), hue: event.target.getAttribute('data-hue'), fontColor: event.target.getAttribute('data-fontcolor')}})
@@ -93,8 +102,23 @@ class App extends Component {
     this.setState({font: event.family})
   }
 
+  setTitleText (event) {
+    this.setState({titleText: event.nativeEvent.target.value})
+  }
+
+  addItems (event) {
+    let arr = this.state.itemsAdded;
+    if (this.state.itemsAdded.length < 3) {
+      arr.push(event.target.innerHTML)
+      this.setState({itemsAdded: arr})
+    } else {
+      return false
+    }
+
+  }
+
   render () {
-    console.log(this.state.fontColor)
+    console.log(this.state.itemsAdded)
     return (
       <div className="theme-builder">
         <div className={"component-container"}>
@@ -107,6 +131,7 @@ class App extends Component {
             layout={this.state.layout}
             font={this.state.font}
             color={this.state.color}
+            titleText={this.state.titleText}
           >
           </YourComponent>
         </div>
@@ -119,6 +144,10 @@ class App extends Component {
           font={this.state.font}
           setBgColor={this.setBgColor}
           color={this.state.color}
+          setMenuIcon={this.setMenuIcon}
+          setTitleText={this.setTitleText}
+          addItems={this.addItems}
+          itemsAdded={this.state.itemsAdded}
         />
       </div>
     )

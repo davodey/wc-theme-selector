@@ -332,7 +332,7 @@ fieldset {
 }
 .color-palatte {
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
   grid-column-gap: 2px;
   margin-bottom:32px;
   grid-row-gap:32px;
@@ -371,4 +371,92 @@ background-image: url('./assets/transparent.png');
 }
 [data-hue="white"] {
   border:1px solid #9e9e9e;
+}
+
+.menu-icon {
+  background:none;
+  width:40px;
+  height:40px;
+}
+
+.content.icon .icon-grid {
+  grid-column-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-column: span 6;
+  grid-row-gap: 16px;
+}
+.content.icon .icon-grid button {
+  cursor: pointer;
+}
+.content.icon .icon-grid button:focus {
+  border-radius: 4px;
+  outline: 0;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8c19d4;
+}
+.content .basic-input {
+  width: 100%;
+  padding: 16px;
+  grid-column: span 6;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  box-sizing:border-box;
+
+}
+.content .basic-input input {
+  background: white;
+  font-size: 32px;
+  height: auto;
+  width:100%;
+  border:1px solid #ccc;
+border-radius:4px;
+  padding:16px;
+  box-sizing: border-box;
+
+}
+.content .basic-input label {
+  display:inline-flex;
+  margin-bottom:16px;
+}
+.content .basic-input input:focus {
+  border-radius: 4px;
+  outline: 0;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8c19d4;
+}
+.scroll-container {
+  grid-column: span 6;
+  height:400px;
+  overflow:scroll;
+
+
+}
+
+.add-buttons-container {
+  grid-column: span 6;
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-row-gap: 32px;
+}
+.add-buttons-container .scroll-container {
+  grid-row:2;
+  grid-column: span 7;
+}
+.add-buttons-container .drag-target-container {
+  grid-column-start: 3;
+  grid-column-end: 6;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+.add-buttons-container .drag-target-container .target {
+  width:100px;
+  height:100px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-buttons-container .drag-target-container .target i {
+  font-size:75px;
+  cursor:grab;
 }

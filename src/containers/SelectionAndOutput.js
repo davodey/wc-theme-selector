@@ -7,7 +7,7 @@ class SelectionAndOutput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      optionSelected: 'Color'
+      optionSelected: 'Add items'
     };
     this.selectOption = this.selectOption.bind(this);
   }
@@ -60,6 +60,7 @@ class SelectionAndOutput extends Component {
   }
 
   render () {
+    console.log(this.state.optionSelected)
     return (
       <div className={"selection-and-output"}>
         <Options
@@ -77,6 +78,10 @@ class SelectionAndOutput extends Component {
           setBgColor={this.props.setBgColor}
           bgColor={this.props.color.hex}
           color={this.props.color}
+          setMenuIcon={this.props.setMenuIcon}
+          setTitleText={this.props.setTitleText}
+          addItems={this.props.addItems}
+          itemsAdded={this.props.itemsAdded}
         />
       </div>
     )
