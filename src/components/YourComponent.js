@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const YourComponent = (props) => {
   return (
     <div>
@@ -20,7 +21,11 @@ const YourComponent = (props) => {
           >
             {
                 props.itemsAdded.map((button,index) => {
-                  console.log(button)
+                  const WC = document.querySelector('flayvor-top-app-bar'),
+                    WCbuttons = WC.shadowRoot.querySelectorAll('button[slot="right"]');
+                  if (WCbuttons.length === 3) {
+                    WCbuttons[index].innerHTML = button
+                  }
                   return (
                     <button key={index}
                             slot="right"

@@ -88,11 +88,11 @@ class App extends Component {
   }
 
   render () {
+    console.log('render')
     return (
       <div className="theme-builder">
         <div className={"component-container"}>
           <YourComponent
-            buttonsBuilt={this.state.buttonsBuilt}
             title={"App Bar"}
             showMenuIcon={this.state.showMenuIcon}
             bgColor={this.state.primaryColorData.selectedHex}
