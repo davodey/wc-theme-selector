@@ -460,3 +460,6 @@ border-radius:4px;
   font-size:75px;
   cursor:grab;
 }
+.target i {
+  pointer-events: none;
+}

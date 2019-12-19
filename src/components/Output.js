@@ -42,7 +42,7 @@ const Output = (props) => {
                 <input onInput={props.setTitleText} type={"text"}/>
               </div> :
               props.optionSelected === 'Add items' ?
-              <AddButtons onClick={props.addItems} itemsAdded={props.itemsAdded}/>
+              <AddButtons swapItems={props.swapItems} onClick={props.addItems} itemsAdded={props.itemsAdded}/>
                 :
             <Fragment></Fragment>
         }

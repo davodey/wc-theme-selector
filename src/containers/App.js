@@ -41,56 +41,13 @@ class App extends Component {
     this.setMenuIcon = this.setMenuIcon.bind(this);
     this.setTitleText = this.setTitleText.bind(this);
     this.addItems = this.addItems.bind(this);
+    this.swapItems = this.swapItems.bind(this);
   }
 
-  // COMPONENT INIT
-  // componentWillMount is called before the render method is executed.
-  // It is important to note that setting the state in this phase will not trigger a re-rendering.
-  componentWillMount() {
-
-  }
-
-  // The DOM can be accessed in this method, enabling to define DOM manipulations or data fetching operations.
-  // Any DOM interactions should always happen in this phase not inside the render method.
-  componentDidMount() {
-
-  }
-
-  // COMPONENT STATE UPDATES
-  // shouldComponentUpdate is always called before the render method and enables to define if a re-rendering is needed or can be skipped.
-  // Obviously this method is never called on initial rendering. A boolean value must be returned.
-  // shouldComponentUpdate (nextProps, nextState) {
-  //   if (this.props !== nextProps || this.state !== nextState) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
-
-  // componentWillUpdate gets called as soon as the the shouldComponentUpdate returned true.
-  // Any state changes via this.setState are not allowed as this method should be strictly used
-  // to prepare for an upcoming update not trigger an update itself.
-
-
-  // componentDidUpdate is called after the render method. Similar to the componentDidMount,
-  // this method can be used to perform DOM operations after the data has been updated.
-  componentDidUpdate (prevProps, prevState) {
-    const addItemsSelected = document.querySelector('.drag-target-container');
-    console.log(addItemsSelected)
-  }
-
-  // UPDATE PROPS
-  // componentWillReceiveProps is only called when the props have changed and when this is not an initial rendering.
-  // componentWillReceiveProps enables to update the state depending on the existing and upcoming props, without triggering another rendering.
-  // One interesting thing to remember here is that there is no equivalent method for the state as state changes should never trigger any props changes.
-  componentWillReceiveProps () {
-
-  }
   setMenuIcon (event) {
     this.setState({menuIcon: event.nativeEvent.target.innerHTML})
   }
   setBgColor (event) {
-    console.log(event.target.getAttribute('data-fontcolor'))
     this.setState({color:{hex: event.target.getAttribute('data-id'), shade: event.target.getAttribute('data-shade'), hue: event.target.getAttribute('data-hue'), fontColor: event.target.getAttribute('data-fontcolor')}})
   }
 
@@ -106,6 +63,16 @@ class App extends Component {
     this.setState({titleText: event.nativeEvent.target.value})
   }
 
+  swapItems (data, test) {
+    const el = document.querySelector('flayvor-top-app-bar').shadowRoot;
+    const buttons = el.querySelectorAll('button[slot="right"]');
+    buttons.forEach(button => {
+      console.log(button)
+    })
+
+    this.setState({itemsAdded: test})
+  }
+
   addItems (event) {
     let arr = this.state.itemsAdded;
     if (this.state.itemsAdded.length < 3) {
@@ -114,11 +81,13 @@ class App extends Component {
     } else {
       return false
     }
-
+    const buttons = document.querySelectorAll('button[slot="right"]');
+    buttons.forEach(button => {
+      button.remove();
+    })
   }
 
   render () {
-    console.log(this.state.itemsAdded)
     return (
       <div className="theme-builder">
         <div className={"component-container"}>
@@ -132,6 +101,7 @@ class App extends Component {
             font={this.state.font}
             color={this.state.color}
             titleText={this.state.titleText}
+            itemsAdded={this.state.itemsAdded}
           >
           </YourComponent>
         </div>
@@ -148,6 +118,7 @@ class App extends Component {
           setTitleText={this.setTitleText}
           addItems={this.addItems}
           itemsAdded={this.state.itemsAdded}
+          swapItems={this.swapItems}
         />
       </div>
     )

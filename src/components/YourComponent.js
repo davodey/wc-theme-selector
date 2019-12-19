@@ -18,10 +18,9 @@ const YourComponent = (props) => {
             menuicon={props.menuIcon}
             type={props.layout}
           >
-
             {
-              props.buttonsBuilt.length > 0 ?
-                props.buttonsBuilt.map((button,index) => {
+                props.itemsAdded.map((button,index) => {
+                  console.log(button)
                   return (
                     <button key={index}
                             slot="right"
@@ -30,7 +29,7 @@ const YourComponent = (props) => {
                       {button}
                     </button>
                   )
-                }) : <div></div>
+                })
             }
           </flayvor-top-app-bar> :
           <flayvor-top-app-bar
@@ -39,8 +38,7 @@ const YourComponent = (props) => {
             type={props.layout}
             hideMenu>
             {
-              props.buttonsBuilt.length > 0 ?
-                props.buttonsBuilt.map((button,index) => {
+                props.itemsAdded.map((button,index) => {
                   return (
                     <button key={index}
                             slot="right"
@@ -49,7 +47,7 @@ const YourComponent = (props) => {
                       {button}
                     </button>
                   )
-                }) : <div></div>
+                })
             }
           </flayvor-top-app-bar>
         }

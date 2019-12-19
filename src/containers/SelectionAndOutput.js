@@ -27,14 +27,7 @@ class SelectionAndOutput extends Component {
 
   // COMPONENT STATE UPDATES
   // shouldComponentUpdate is always called before the render method and enables to define if a re-rendering is needed or can be skipped.
-  // Obviously this method is never called on initial rendering. A boolean value must be returned.
-  shouldComponentUpdate (nextProps, nextState) {
-    if (this.props !== nextProps || this.state !== nextState) {
-      return true
-    } else {
-      return false
-    }
-  }
+
 
   // componentWillUpdate gets called as soon as the the shouldComponentUpdate returned true.
   // Any state changes via this.setState are not allowed as this method should be strictly used
@@ -60,7 +53,6 @@ class SelectionAndOutput extends Component {
   }
 
   render () {
-    console.log(this.state.optionSelected)
     return (
       <div className={"selection-and-output"}>
         <Options
@@ -82,6 +74,7 @@ class SelectionAndOutput extends Component {
           setTitleText={this.props.setTitleText}
           addItems={this.props.addItems}
           itemsAdded={this.props.itemsAdded}
+          swapItems={this.props.swapItems}
         />
       </div>
     )
