@@ -7,7 +7,7 @@ class SelectionAndOutput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      optionSelected: 'Add items'
+      optionSelected: 'Generate code'
     };
     this.selectOption = this.selectOption.bind(this);
   }

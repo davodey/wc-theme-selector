@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "font-picker-react": "^3.4.1",
+    "html-format": "^1.0.1",
+    "prismjs": "^1.19.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -18,7 +20,6 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-
   },
   "eslintConfig": {
     "extends": "react-app"

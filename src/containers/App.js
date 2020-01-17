@@ -23,7 +23,6 @@ class App extends Component {
         shade: "500",
         fontColor: "white"
       },
-      menuIcon: "access_time",
       titleText: "This is your title",
       itemsAdded: []
     };
@@ -64,12 +63,6 @@ class App extends Component {
   }
 
   swapItems (data, test) {
-    const el = document.querySelector('flayvor-top-app-bar').shadowRoot;
-    const buttons = el.querySelectorAll('button[slot="right"]');
-    buttons.forEach(button => {
-      console.log(button)
-    })
-
     this.setState({itemsAdded: test})
   }
 

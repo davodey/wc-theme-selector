@@ -1,0 +1,187 @@
+
+
+/* PrismJS 1.17.1
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #f8f8f2;
+    background: none;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+    border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #f8f8f2;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+    color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+    color: #e6db74;
+}
+
+.token.keyword {
+    color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+    color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+.code {
+    background: #efefef;
+    padding:32px;
+}
+pre {
+    position: relative;
+    white-space: pre-wrap;
+    display:block;
+    padding-top: 40px !important;
+}
+#copyCapture.html:before, #copyCapture.css:before {
+    content: "HTML";
+    width:100%;
+    font-size:12px;
+    background:#333;
+    padding:8px 16px;
+    color:white;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 999;
+    padding-top:10px;
+    border-radius: 5px 0 0 5px;
+    box-sizing:border-box;
+}
+#copyCapture.css:before {
+    content: "CSS"
+}
+
+.clipWrapper button {
+    display:flex !important;
+    border-radius:5px;
+    background:none !important;
+    color: #c6e873;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
+    padding:8px !important;
+    border:1px solid #797979 !important;
+    margin:8px;
+}
+.clipWrapper button svg {
+    display:none;
+}
+#copyCapture {
+    position:relative;
+    overflow: hidden;
+}
+#copyCapture button{
+    position:absolute;
+    right:16px;
+    color:white;
+    top:-2px;
+    z-index: 10000;
+}
+.row {
+    margin-bottom:32px;
+}
