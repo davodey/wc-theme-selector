@@ -441,8 +441,8 @@ border-radius:4px;
   grid-column: span 7;
 }
 .add-buttons-container .drag-target-container {
-  grid-column-start: 3;
-  grid-column-end: 6;
+  grid-column-start: 2;
+  grid-column-end: 7;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -455,6 +455,7 @@ border-radius:4px;
   display:flex;
   align-items: center;
   justify-content: center;
+
 }
 .add-buttons-container .drag-target-container .target i {
   font-size:75px;

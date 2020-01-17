@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aef215e-35cc-4daa-8b64-8cb5285c74dc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/GenerateCode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/PrismComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Output.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Output.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/SelectionAndOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/SelectionAndOutput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/code.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +132,7 @@
       <workItem from="1578328144159" duration="9000" />
       <workItem from="1579204197405" duration="7612000" />
       <workItem from="1579226038152" duration="800000" />
-      <workItem from="1579227149219" duration="1624000" />
+      <workItem from="1579227149219" duration="2208000" />
     </task>
     <servers />
   </component>
